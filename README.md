@@ -14,6 +14,7 @@
 	}
 	
 ②.在app中的build.gradle添加：
+
 	dependencies {
 	        compile 'com.github.jxr202:image-crop:v1.0.1'	//添加这一句.
 	}

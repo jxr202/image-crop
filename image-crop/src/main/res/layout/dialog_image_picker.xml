@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/takePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:text="@string/takePhoto"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f2f2f2"/>
+
+    <TextView
+        android:id="@+id/choosePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:text="@string/choosePhoto"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#f2f2f2"/>
+
+    <TextView
+        android:id="@+id/cancelPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

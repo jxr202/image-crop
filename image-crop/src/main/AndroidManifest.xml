@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.jxr202.image_crop">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity android:name=".ImageCropActivity" android:theme="@style/ActionSheetDialogStyle">>
+            <intent-filter>
+                <action android:name="android.intent.action.ImageCrop"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

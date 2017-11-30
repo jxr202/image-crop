@@ -12,6 +12,7 @@
         <activity android:name=".ImageCropActivity" android:theme="@style/ActionSheetDialogStyle">>
             <intent-filter>
                 <action android:name="android.intent.action.ImageCrop"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

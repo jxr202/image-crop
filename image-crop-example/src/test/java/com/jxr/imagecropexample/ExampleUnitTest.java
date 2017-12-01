@@ -1,4 +1,4 @@
-package com.jxr.imagecrop;
+package com.jxr.imagecropexample;
 
 import org.junit.Test;
 

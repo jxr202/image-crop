@@ -1,4 +1,4 @@
-package com.jxr.imagecrop;
+package com.jxr.imagecropexample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.jxr.imagecrop", appContext.getPackageName());
+        assertEquals("com.jxr.imagecropexample", appContext.getPackageName());
     }
 }

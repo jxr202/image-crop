@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Image Crop</string>
     <string name="takePhoto">Take Photo…</string>
     <string name="choosePhoto">Choose from Library…</string>
     <string name="cancel">Cancel</string>

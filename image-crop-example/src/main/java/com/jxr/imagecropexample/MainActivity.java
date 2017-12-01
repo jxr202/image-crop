@@ -1,4 +1,4 @@
-package com.jxr.imagecrop;
+package com.jxr.imagecropexample;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import com.jxr202.image_crop.ImageCropActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

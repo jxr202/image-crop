@@ -16,7 +16,7 @@
 ②.在app中的build.gradle添加：
 
 	dependencies {
-	        compile 'com.github.jxr202:image-crop:v1.0.2'	//添加这一句.
+	        compile 'com.github.jxr202:image-crop:v1.0.3'	//添加这一句.
 	}
 	
 	
@@ -28,10 +28,10 @@
     private void startToImagePicker() {
         
         Bundle bundle = new Bundle();
-        bundle.putInt("outputX", 80);
-        bundle.putInt("outputY", 160);
-        bundle.putInt("aspectX", 1);
-        bundle.putInt("aspectY", 2);
+        bundle.putInt("outputX", 80);   //宽度
+        bundle.putInt("outputY", 160);  //高度
+        bundle.putInt("aspectX", 1);    //比例
+        bundle.putInt("aspectY", 2);    //比例
         Intent intent = new Intent("android.intent.action.ImageCrop");
         intent.putExtra("bundle", bundle);
 

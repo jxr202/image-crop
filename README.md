@@ -2,6 +2,9 @@
 
 # 头像获取库
 
+![alt tag](https://raw.github.com/jxr202/image-crop/master/screenshots/screenshots_01.png)
+
+
 # 1.init：
 
 ①.在Project中的build.gradle添加：

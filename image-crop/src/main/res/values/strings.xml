@@ -1,5 +1,9 @@
-<resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="takePhoto">Take Photo…</string>
     <string name="choosePhoto">Choose from Library…</string>
     <string name="cancel">Cancel</string>
+    <string name="camera_available_title">Unable to get system camera permissions.</string>
+    <string name="camera_available_message">Please allow to use camera permissions in - Settings - Permission.</string>
+    <string name="open_right_now">Turn On</string>
 </resources>

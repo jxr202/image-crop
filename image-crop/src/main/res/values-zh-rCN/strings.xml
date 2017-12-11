@@ -1,5 +1,9 @@
-<resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="takePhoto">照相</string>
     <string name="choosePhoto">从相册选择</string>
     <string name="cancel">取消</string>
+    <string name="camera_available_title">相机权限不可用</string>
+    <string name="camera_available_message">请在-应用设置-权限-中，开启相机权限。</string>
+    <string name="open_right_now">立即开启</string>
 </resources>

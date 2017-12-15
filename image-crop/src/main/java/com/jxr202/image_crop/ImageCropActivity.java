@@ -6,8 +6,10 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +18,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.PermissionChecker;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -24,6 +27,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.io.File;
+
+import static android.R.attr.permission;
 
 /**
  * Created by jxr202 on 2017/11/29
@@ -127,10 +132,11 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 启动手机相机拍摄照片作为头像
      */
     private void choseHeadImageFromCameraCapture() {
-
+        Log.i(TAG, "Sdk version: " + Build.VERSION.SDK_INT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int i = ContextCompat.checkSelfPermission(this, permissions[0]);
-            if (i != PackageManager.PERMISSION_GRANTED) {
+            int permissionCamera = ContextCompat.checkSelfPermission(this, permissions[0]);
+            Log.i(TAG, "permissionCamera: " + permissionCamera);
+            if (permissionCamera != PackageManager.PERMISSION_GRANTED) {
                 showRequestPermissionDialog();
             } else {
                 startCamera();
@@ -144,6 +150,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 开始拍照
      */
     private void startCamera() {
+        Log.i(TAG, "startCamera.. ");
         Intent intentFromCapture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (hasSdcard()) {  // 判断存储卡是否可用，存储照片文件
             intentFromCapture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), IMAGE_FILE_NAME)));
@@ -170,6 +177,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 提示用户该请求权限的弹出框
      */
     private void showRequestPermissionDialog() {
+        Log.i(TAG, "showRequestPermissionDialog.. ");
         new AlertDialog.Builder(this)
                 .setTitle(R.string.camera_available_title)
                 .setMessage(R.string.camera_available_message)
@@ -308,6 +316,20 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
         startActivityForResult(intent, CODE_RESULT_REQUEST);
     }
 
+    /**
+     * 当前版本
+     * @return v
+     */
+    private int getTargetSdkVersion() {
+        int targetSdkVersion = 0;
+        try {
+            final PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
+            targetSdkVersion = info.applicationInfo.targetSdkVersion;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return targetSdkVersion;
+    }
 
     /**
      * 检查设备是否存在SDCard的工具方法

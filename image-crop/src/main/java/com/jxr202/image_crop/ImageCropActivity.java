@@ -255,7 +255,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
                     int permissionValue = ContextCompat.checkSelfPermission(this, permission);
                     Log.i(TAG, "permission: " + permission + "is " + permissionValue);
                     if (permissionValue != PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, "因缺少权限，无法使用该功能！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.permission_error, Toast.LENGTH_SHORT).show();
                         setResult(RESULT_CANCELED, null);
                         finish();
                         return;

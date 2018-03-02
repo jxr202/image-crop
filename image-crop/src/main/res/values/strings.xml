@@ -3,7 +3,8 @@
     <string name="takePhoto">Take Photo…</string>
     <string name="choosePhoto">Choose from Library…</string>
     <string name="cancel">Cancel</string>
-    <string name="camera_available_title">Unable to get system camera permissions.</string>
-    <string name="camera_available_message">Please allow to use camera permissions in - Settings - Permission.</string>
+    <string name="permission_title">Unable to get permissions.</string>
+    <string name="permission_message">Please allow to use all permissions in - Settings - Permission.</string>
+    <string name="permission_error">The function cannot be used because of the lack of permissions</string>
     <string name="open_right_now">Turn On</string>
 </resources>

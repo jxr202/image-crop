@@ -2,11 +2,16 @@ package com.jxr.imagecropexample;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.jxr202.image_crop.ImageCropActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,10 +55,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
             Bundle extras = data.getExtras();
+            Log.i(TAG, "extras: " + extras);
             if (extras != null) {
                 Log.i(TAG, "头像选取成功");
-                Bitmap photo = extras.getParcelable("data");
-                avatar.setImageBitmap(photo);
+                String imagePath = data.getStringExtra(ImageCropActivity.CROP_IMAGE_PATH);
+                Log.i(TAG, "imagePath: " + imagePath);
+                if (!TextUtils.isEmpty(imagePath)) {
+                    Log.i(TAG, "获取头像路径成功");
+                    Bitmap pathBitmap = BitmapFactory.decodeFile(imagePath);
+                    avatar.setImageBitmap(pathBitmap);
+                }
             }
         } else {
             Log.i(TAG, "头像选取失败");

@@ -193,18 +193,22 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 从本地相册选取图片作为头像
      */
     private void choseHeadImageFromGallery() {
-
-        // ACTION_GET_CONTENT 让用户自己选择使用哪里的图片，如最近、下载或是相册等等
+        try {
+            // ACTION_GET_CONTENT 让用户自己选择使用哪里的图片，如最近、下载或是相册等等
         /*Intent intentFromGallery = new Intent();
         intentFromGallery.setAction(Intent.ACTION_GET_CONTENT);
         intentFromGallery.setType("image*//*");//选择图片*/
 
-        // ACTION_PICK 则是直接使用相册中的图片
-        Intent intentPhoto = new Intent(Intent.ACTION_PICK, null);
-        intentPhoto.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+            // ACTION_PICK 则是直接使用相册中的图片
+            Intent intentPhoto = new Intent(Intent.ACTION_PICK, null);
+            intentPhoto.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 
-        // 发起选图请求
-        startActivityForResult(intentPhoto, CODE_GALLERY_REQUEST);
+            // 发起选图请求
+            startActivityForResult(intentPhoto, CODE_GALLERY_REQUEST);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -292,7 +296,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
             case CODE_RESULT_REQUEST: {
                 //裁剪完成
                 if (intent != null) {
-                    intent.putExtra(CROP_IMAGE_PATH, mHeadCacheFile.getAbsolutePath());
+                    intent.putExtra(CROP_IMAGE_PATH, mHeadCacheFile == null ? "" : mHeadCacheFile.getAbsolutePath());
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -327,30 +331,33 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 裁剪原始的图片
      */
     public void cropRawPhoto(Uri uri) {
+        try {
+            createHeadCache();
 
-        createHeadCache();
+            Intent intent = new Intent("com.android.camera.action.CROP");
+            intent.setDataAndType(uri, "image/*");
+            intent.putExtra("crop", "true");
+            // aspectX , aspectY :宽高的比例
+            intent.putExtra("aspectX", aspectX);
+            intent.putExtra("aspectY", aspectY);
+            // outputX , outputY : 裁剪图片宽高
+            intent.putExtra("outputX", outputX);
+            intent.putExtra("outputY", outputY);
 
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        intent.putExtra("crop", "true");
-        // aspectX , aspectY :宽高的比例
-        intent.putExtra("aspectX", aspectX);
-        intent.putExtra("aspectY", aspectY);
-        // outputX , outputY : 裁剪图片宽高
-        intent.putExtra("outputX", outputX);
-        intent.putExtra("outputY", outputY);
+            Log.i(TAG, "mHeadCacheFile: " + mHeadCacheFile.getAbsolutePath());
 
-        Log.i(TAG, "mHeadCacheFile: " + mHeadCacheFile.getAbsolutePath());
+            Uri uriPath = Uri.parse("file://" + mHeadCacheFile.getAbsolutePath());
+            //将裁剪好的图输出到所建文件中
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, uriPath);
+            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+            //注意：此处应设置return-data为false，如果设置为true，是直接返回bitmap格式的数据，耗费内存。设置为false，然后，设置裁剪完之后保存的路径，即：intent.putExtra(MediaStore.EXTRA_OUTPUT, uriPath);
+            //intent.putExtra("return-data", true);
+            intent.putExtra("return-data", false);
 
-        Uri uriPath = Uri.parse("file://" + mHeadCacheFile.getAbsolutePath());
-        //将裁剪好的图输出到所建文件中
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, uriPath);
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        //注意：此处应设置return-data为false，如果设置为true，是直接返回bitmap格式的数据，耗费内存。设置为false，然后，设置裁剪完之后保存的路径，即：intent.putExtra(MediaStore.EXTRA_OUTPUT, uriPath);
-        //intent.putExtra("return-data", true);
-        intent.putExtra("return-data", false);
-
-        startActivityForResult(intent, CODE_RESULT_REQUEST);
+            startActivityForResult(intent, CODE_RESULT_REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

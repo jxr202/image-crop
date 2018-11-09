@@ -154,7 +154,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
                             showSettingPermissionDialog();
                             return;
                         } else {
-                            Toast.makeText(this, R.string.permission_error, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, R.string.image_crop_6, Toast.LENGTH_SHORT).show();
                             setResult(RESULT_CANCELED, null);
                             finish();
                             return;
@@ -170,18 +170,18 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      */
     private void showSettingPermissionDialog() {
         new AlertDialog.Builder(this)
-                .setTitle(R.string.permission_title)
-                .setMessage(R.string.permission_message)
-                .setPositiveButton(R.string.open_right_now, new DialogInterface.OnClickListener() {
+                .setTitle(R.string.image_crop_4)
+                .setMessage(R.string.image_crop_5)
+                .setPositiveButton(R.string.image_crop_7, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         goToSetting();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.image_crop_3, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(ImageCropActivity.this, R.string.permission_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ImageCropActivity.this, R.string.image_crop_6, Toast.LENGTH_SHORT).show();
                         setResult(RESULT_CANCELED, null);
                         finish();
                     }
@@ -255,7 +255,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
                     int permissionValue = ContextCompat.checkSelfPermission(this, permission);
                     Log.i(TAG, "permission: " + permission + "is " + permissionValue);
                     if (permissionValue != PackageManager.PERMISSION_GRANTED) {
-                        Toast.makeText(this, R.string.permission_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.image_crop_6, Toast.LENGTH_SHORT).show();
                         setResult(RESULT_CANCELED, null);
                         finish();
                         return;
@@ -266,7 +266,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
         }
 
         if (resultCode == RESULT_CANCELED) {    // 用户没有进行有效的设置操作，返回
-            Toast.makeText(getApplication(), R.string.cancel, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(), R.string.image_crop_3, Toast.LENGTH_LONG).show();
             setResult(RESULT_CANCELED, intent);
             finish();
             return;
@@ -383,7 +383,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
         } else if (i == R.id.choosePhoto) {
             choseHeadImageFromGallery();
         } else if (i == R.id.cancelPhoto) {
-            Toast.makeText(getApplication(), R.string.cancel, Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplication(), R.string.image_crop_3, Toast.LENGTH_LONG).show();
             setResult(RESULT_CANCELED, null);
             finish();
         }

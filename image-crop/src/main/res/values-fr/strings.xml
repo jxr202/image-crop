@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="takePhoto">Prendre des photos</string>
-    <string name="choosePhoto">Album photo</string>
-    <string name="cancel">Annuler</string>
-    <string name="permission_title">Unable to get permissions.</string>
-    <string name="permission_message">Please allow to use all permissions in - Settings - Permission.</string>
-    <string name="permission_error">The function cannot be used because of the lack of permissions</string>
-    <string name="open_right_now">Turn On</string>
+    <string name="image_crop_1">Prendre des photos</string>
+    <string name="image_crop_2">Album photo</string>
+    <string name="image_crop_3">Annuler</string>
+    <string name="image_crop_4">Unable to get permissions.</string>
+    <string name="image_crop_5">Please allow to use all permissions in - Settings - Permission.</string>
+    <string name="image_crop_6">The function cannot be used because of the lack of permissions</string>
+    <string name="image_crop_7">Turn On</string>
 </resources>

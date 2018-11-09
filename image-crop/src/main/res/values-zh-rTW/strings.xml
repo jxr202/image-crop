@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="takePhoto">照相</string>
-    <string name="choosePhoto">從相册選擇</string>
-    <string name="cancel">取消</string>
-    <string name="permission_title">許可權不可用</string>
-    <string name="permission_message">請在-應用設定-許可權-中，開啟所有許可權。</string>
-    <string name="permission_error">因缺少許可權，無法使用該功能</string>
-    <string name="open_right_now">立即開啟</string>
+    <string name="image_crop_1">照相</string>
+    <string name="image_crop_2">從相册選擇</string>
+    <string name="image_crop_3">取消</string>
+    <string name="image_crop_4">許可權不可用</string>
+    <string name="image_crop_5">請在-應用設定-許可權-中，開啟所有許可權。</string>
+    <string name="image_crop_6">因缺少許可權，無法使用該功能</string>
+    <string name="image_crop_7">立即開啟</string>
 </resources>

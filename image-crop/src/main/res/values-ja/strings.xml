@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="image_crop_1">撮影</string>
+    <string name="image_crop_2">携帯の写真から選択</string>
+    <string name="image_crop_3">キャンセル</string>
+    <string name="image_crop_4">権限を持っていない</string>
+    <string name="image_crop_5">APPによって付与されたすべてのアクセス許可に同意してください。それ以外の場合、APPの一部の機能は無効になります。設定するパス：システム設定 - アプリケーション管理 - APP - 権限</string>
+    <string name="image_crop_6">権限が不足しているため、この機能を使用できません。</string>
+    <string name="image_crop_7">早速ターンオン</string>
+</resources>

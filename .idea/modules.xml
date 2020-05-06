@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/image-crop.iml" filepath="$PROJECT_DIR$/image-crop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/image-crop-example/image-crop-example.iml" filepath="$PROJECT_DIR$/image-crop-example/image-crop-example.iml" />
-      <module fileurl="file://$PROJECT_DIR$/image-crop/image-crop-image-crop.iml" filepath="$PROJECT_DIR$/image-crop/image-crop-image-crop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image-crop.iml" filepath="$PROJECT_DIR$/image-crop.iml" group="image-crop" />
+      <module fileurl="file://$PROJECT_DIR$/image-crop-example/image-crop-example.iml" filepath="$PROJECT_DIR$/image-crop-example/image-crop-example.iml" group="image-crop/image-crop-example" />
+      <module fileurl="file://$PROJECT_DIR$/image-crop/image-crop-image-crop.iml" filepath="$PROJECT_DIR$/image-crop/image-crop-image-crop.iml" group="image-crop/image-crop" />
     </modules>
   </component>
 </project>

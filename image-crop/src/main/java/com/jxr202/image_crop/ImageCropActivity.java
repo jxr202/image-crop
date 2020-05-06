@@ -27,7 +27,9 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -90,6 +92,8 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
      * 裁剪后的文件
      */
     private File mHeadCacheFile;
+
+    private boolean isNameAuto = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -316,7 +320,7 @@ public class ImageCropActivity extends Activity implements View.OnClickListener 
             boolean makeParent = parent.mkdirs();
             Log.i(TAG, "makeParent: " + makeParent);
         }
-        mHeadCacheFile = new File(parent, "headCache.png");
+        mHeadCacheFile = new File(parent, "headCache" + new Date().getTime() / 1000 + ".png");
         if (!mHeadCacheFile.exists()) {
             try {
                 boolean makeHeadCache = mHeadCacheFile.createNewFile();
